@@ -18,13 +18,43 @@ t4 = 0
 
 add_l = []
 
-csv_file = str(input("Name the csv file you want to create?"))
+csv_file = str(input("What is the csv file?"))
 
 num_rows = int(input("How many rows do you want?"))
 
 num_columns = int(input("How many columns do you want?"))
 
 gaus = float(input("What disparity multiplicator do you want? (1 is default)"))
+
+print("")
+
+print("Increasing the randomness can neglect the impact of the disparity factor")
+
+print("")
+
+gaus2 = str(input("Do you want to increase the randomness? (y/n)"))
+
+ri_l = [1]
+
+add = 0
+
+if gaus2 == "y":
+
+    ri_l = []
+
+    min_ = float(input("Min value of the interval countaining the random factor"))
+
+    max_ = float(input("Max value of the interval containing the random factor"))
+
+    step = float(input("What is the step?"))
+
+    ri_l.append(min_)
+
+    while min_ + add <= max_:
+
+        ri_l.append(min_ + add)
+
+        add += step
 
 def touch(csv_file):
 
@@ -62,9 +92,9 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 add = 0
 
-                while t3 < random.choice(random_l) * gaus:
+                while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
 
-                    add += random.choice(random_l) * gaus
+                    add += random.choice(random_l) * gaus 
 
                     t3 += 1
 
@@ -72,7 +102,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 add = ""
 
-                while t3 < random.choice(random_l) * gaus:
+                while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
 
                     add += random.choice(str_l)
 
