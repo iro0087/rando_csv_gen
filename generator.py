@@ -24,6 +24,8 @@ num_rows = int(input("How many rows do you want?"))
 
 num_columns = int(input("How many columns do you want?"))
 
+gaus = float(input("What disparity multiplicator do you want? (1 is default)")
+
 def touch(csv_file):
 
     with open(csv_file, "a"):
@@ -64,9 +66,9 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 add = 0
 
-                while t3 < random.choice(random_l):
+                while t3 < random.choice(random_l) * gaus:
 
-                    add += random.choice(random_l)
+                    add += random.choice(random_l) * gaus
 
                     t3 += 1
 
@@ -74,7 +76,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 add = ""
 
-                while t3 < random.choice(random_l):
+                while t3 < random.choice(random_l) * gaus:
 
                     add += random.choice(str_l)
 
