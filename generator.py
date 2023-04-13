@@ -100,7 +100,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
             else:
 
-                add = ""
+                add = "" #  can be changed to not have none values
 
                 while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
 
