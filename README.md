@@ -10,3 +10,5 @@ Here another example opened in LibreOffice.
 
 ![photo5](https://user-images.githubusercontent.com/114911243/231795892-0c82b667-78c5-48b1-b787-87aea8f0f35a.jpg)
 
+Edit: You can have None values in text columns. You can modify this behavior by changing the empty string at row 103. 
+
