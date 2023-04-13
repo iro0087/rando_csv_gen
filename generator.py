@@ -18,13 +18,13 @@ t4 = 0
 
 add_l = []
 
-csv_file = str(input("What csv file do you want to create?"))
+csv_file = str(input("What is the csv file?"))
 
 num_rows = int(input("How many rows do you want?"))
 
 num_columns = int(input("How many columns do you want?"))
 
-gaus = float(input("What disparity multiplicator do you want? (1 is default)")
+gaus = float(input("What disparity multiplicator do you want? (1 is default)"))
 
 def touch(csv_file):
 
@@ -40,7 +40,7 @@ while exclu != -1:
 
         exclu = int(input("Which columns is a string (-1 to end)?"))
 
-        exclu_l.append(exclu - 2)
+        exclu_l.append(exclu - 1)
 
 exclu_l.pop(0)
 
@@ -50,17 +50,13 @@ if len(exclu_l) == 0:
 
     exclu_l.append(-1)
 
-print(exclu_l)
-
 with open(csv_file, "w", encoding="UTF8") as csv_file:
     
     csv_writer = csv.writer(csv_file)
 
     while t < num_rows:
 
-        temp_l.append(str(t))
-
-        while t2 < num_columns - 1:
+        while t2 < num_columns:
 
             if t2 != exclu_l[t4]:
 
@@ -82,7 +78,9 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                     t3 += 1
 
-                t4 += 1
+                if t4 + 1 < len(exclu_l):
+
+                    t4 += 1
 
             temp_l.append(add)
 
