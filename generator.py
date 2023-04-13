@@ -18,21 +18,21 @@ t4 = 0
 
 add_l = []
 
-csv_file = str(input("What is the csv file?"))
+csv_file = str(input("What is the csv file? "))
 
-num_rows = int(input("How many rows do you want?"))
+num_rows = int(input("How many rows do you want? "))
 
-num_columns = int(input("How many columns do you want?"))
+num_columns = int(input("How many columns do you want? "))
 
-gaus = float(input("What disparity multiplicator do you want? (1 is default)"))
-
-print("")
-
-print("Increasing the randomness can neglect the impact of the disparity factor")
+gaus = float(input("What disparity multiplicator do you want? (1 is default) "))
 
 print("")
 
-gaus2 = str(input("Do you want to increase the randomness? (y/n)"))
+print("Increasing the randomness can neglect the impact of the disparity factor ")
+
+print("")
+
+gaus2 = str(input("Do you want to increase the randomness? (y/n) "))
 
 ri_l = [1]
 
@@ -42,9 +42,9 @@ if gaus2 == "y":
 
     ri_l = []
 
-    min_ = float(input("Min value of the interval countaining the random factor"))
+    min_ = float(input("Min value of the interval countaining the random factor "))
 
-    max_ = float(input("Max value of the interval containing the random factor"))
+    max_ = float(input("Max value of the interval containing the random factor "))
 
     step = float(input("What is the step?"))
 
@@ -68,7 +68,7 @@ exclu_l = [exclu]
 
 while exclu != -1:
 
-        exclu = int(input("Which columns is a string (-1 to end)?"))
+        exclu = int(input("Which columns is a string (-1 to end)? "))
 
         exclu_l.append(exclu - 1)
 
