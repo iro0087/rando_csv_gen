@@ -46,7 +46,7 @@ if gaus2 == "y":
 
     max_ = float(input("Max value of the interval containing the random factor "))
 
-    step = float(input("What is the step?"))
+    step = float(input("What is the step? "))
 
     ri_l.append(min_)
 
