@@ -18,7 +18,7 @@ t4 = 0
 
 add_l = []
 
-csv_file = str(input("What is the csv file?"))
+csv_file = str(input("Name the csv file you want to create?"))
 
 num_rows = int(input("How many rows do you want?"))
 
