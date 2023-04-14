@@ -1,5 +1,7 @@
 import csv, random, os
 
+from os.path import exists
+
 random_l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 str_l = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -18,9 +20,37 @@ t4 = 0
 
 add_l = []
 
+temp_l2 = []
+
 csv_file = str(input("What is the csv file? "))
 
+existing = 0
+
+if exists(csv_file) == True:
+
+    print("Existing file")
+
+    with open(csv_file, "r", encoding="UTF8") as csv_file2:
+
+        csv_reader = csv.reader(csv_file2)
+
+        for i in csv_reader:
+
+            temp_l2.append(i)
+
+    csv_file2.close()
+
+    existing = 1
+
 num_rows = int(input("How many rows do you want? "))
+
+if num_rows >= len(temp_l2):
+
+    num_rows_f = num_rows
+
+else:
+
+    num_rows_f = len(temp_l2)
 
 num_columns = int(input("How many columns do you want? "))
 
@@ -84,9 +114,9 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
     
     csv_writer = csv.writer(csv_file)
 
-    while t < num_rows:
+    while t < num_rows_f:
 
-        while t2 < num_columns:
+        while t2 < num_columns and t < num_rows:
 
             if t2 != exclu_l[t4]:
 
@@ -100,7 +130,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
             else:
 
-                add = "" #  can be changed to not have none values
+                add = ""
 
                 while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
 
@@ -119,7 +149,37 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
             t2 += 1
 
         t2 = 0
-    
+
+        t4 = 0
+
+        if t < len(temp_l2): 
+
+            while t2 < len(temp_l2[t]):
+
+                while t4 < len(temp_l2[t - 1]) - len(temp_l2[t]):
+
+                    temp_l2[t].append(" ") # can be changed to not have None values
+
+                    t4 += 1
+
+                t4 = 0
+
+                temp_l.insert(t2, temp_l2[t][t2])
+
+                t2 += 1
+
+        else:
+
+            if existing == 1:
+
+                while t2 < len(temp_l2[0]):
+
+                    temp_l.insert(0, " ")
+
+                    t2 += 1
+
+        t2 = 0
+
         csv_writer.writerow(temp_l)
 
         temp_l = []
@@ -128,6 +188,4 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
         t += 1
 
-
-
-
+csv_file.close()
