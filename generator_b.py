@@ -152,7 +152,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
         t4 = 0
 
-        if t < len(temp_l2): #  raisonner en terme de len temp_l2
+        if t < len(temp_l2): 
 
             print("ok1", temp_l2[t], t)
 
@@ -160,7 +160,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 while t4 < len(temp_l2[t - 1]) - len(temp_l2[t]):
 
-                    temp_l2[t].append(" ")
+                    temp_l2[t].append(" ") # can be changed to not have None values
 
                     t4 += 1
 
@@ -193,6 +193,3 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
         t += 1
 
 csv_file.close()
-
-print(len(temp_l2))
-
