@@ -158,7 +158,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 while t4 < len(temp_l2[t - 1]) - len(temp_l2[t]):
 
-                    temp_l2[t].append(" ") # can be changed to not have None values
+                    temp_l2[t].append("a") 
 
                     t4 += 1
 
