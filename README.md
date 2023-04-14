@@ -5,7 +5,7 @@ Generate a random csv file with a choosen number of rows and columns.
 
 - You can change the disparity in the data and the randomness. 
 
-- You can add (by the column) random csv by running as many time as you want the programm on the same file.
+- You can add (by the column) the random generated csv by running as many time as you want the programm on the same file.
 
 Example in raw text
 
