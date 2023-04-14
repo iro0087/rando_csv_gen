@@ -154,8 +154,6 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
         if t < len(temp_l2): 
 
-            print("ok1", temp_l2[t], t)
-
             while t2 < len(temp_l2[t]):
 
                 while t4 < len(temp_l2[t - 1]) - len(temp_l2[t]):
@@ -173,8 +171,6 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
         else:
 
             if existing == 1:
-
-                print("ok2")
 
                 while t2 < len(temp_l2[0]):
 
