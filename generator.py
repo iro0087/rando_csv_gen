@@ -18,6 +18,8 @@ t3 = 0
 
 t4 = 0
 
+t5 = 0
+
 add_l = []
 
 temp_l2 = []
@@ -94,7 +96,9 @@ def touch(csv_file):
 
 exclu = "?"
 
-exclu_l = [exclu]
+exclu_l = ["?"]
+
+exclu_l2 = []
 
 while exclu != -1:
 
@@ -106,9 +110,25 @@ exclu_l.pop(0)
 
 exclu_l.pop(-1)
 
+exclu = "?"
+
+while exclu != -1:
+
+    exclu = int(input("Which column(s), in numeric order, is made of string and num (-1 to end)"))
+
+    exclu_l2.append(exclu - 1)
+
+exclu_l2.pop(-1)
+
 if len(exclu_l) == 0:
 
     exclu_l.append(-1)
+
+if len(exclu_l2) == 0:
+
+    exclu_l2.append(-1)
+
+bool_l = ["str", "num"]
 
 with open(csv_file, "w", encoding="UTF8") as csv_file:
     
@@ -122,11 +142,40 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 add = 0
 
-                while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
+                if t2 != exclu_l2[t5]: 
 
-                    add += random.choice(random_l) * gaus 
+                    while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
 
-                    t3 += 1
+                        add += random.choice(random_l) * gaus 
+
+                        t3 += 1
+                else:
+
+                    choice = random.choice(bool_l)
+
+                    print("ok", t2)
+
+                    if choice == "str":
+
+                        add = "a"
+
+                        while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
+
+                            add += random.choice(str_l)
+
+                            t3 += 1
+
+                    else:
+
+                        while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
+
+                            add += random.choice(random_l) * gaus 
+
+                            t3 += 1
+
+                    if t5 + 1 < len(exclu_l2):
+
+                        t5 += 1
 
             else:
 
@@ -152,6 +201,8 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
         t4 = 0
 
+        t5 = 0
+
         if t < len(temp_l2): 
 
             while t2 < len(temp_l2[t]):
@@ -170,7 +221,7 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
         else:
 
-            if existing == 1:
+            if existing == 1 and len(temp_l2) > 0:
 
                 while t2 < len(temp_l2[0]):
 
