@@ -7,7 +7,7 @@ Generate a random csv file with a choosen number of rows and columns.
 
 - You can add (by the column) the random generated csv by running as many time as you want the programm on the same file.
 
-- A column can randomly be composed of strings and integers 
+- You can choose if a column will be randomly composed of strings and integers 
 
 Example in raw text
 
