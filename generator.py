@@ -96,7 +96,7 @@ def touch(csv_file):
 
 exclu = "?"
 
-exclu_l = ["?"]
+exclu_l = []
 
 exclu_l2 = []
 
@@ -105,8 +105,6 @@ while exclu != -1:
         exclu = int(input("Which column(s), in numeric order, is a string (-1 to end)? "))
 
         exclu_l.append(exclu - 1)
-
-exclu_l.pop(0)
 
 exclu_l.pop(-1)
 
@@ -152,8 +150,6 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
                 else:
 
                     choice = random.choice(bool_l)
-
-                    print("ok", t2)
 
                     if choice == "str":
 
