@@ -98,7 +98,7 @@ exclu_l = [exclu]
 
 while exclu != -1:
 
-        exclu = int(input("Which columns is a string (-1 to end)? "))
+        exclu = int(input("Which column(s), in numeric order, is a string (-1 to end)? "))
 
         exclu_l.append(exclu - 1)
 
