@@ -20,6 +20,8 @@ t4 = 0
 
 t5 = 0
 
+t6 = 0
+
 add_l = []
 
 temp_l2 = []
@@ -56,6 +58,12 @@ else:
 
 num_columns = int(input("How many columns do you want? "))
 
+print("")
+
+print("If you want to have gaussian type values choose default answers for the next questions and no columns made of string :)")
+
+print("")
+
 gaus = float(input("What disparity multiplicator do you want? (1 is default) "))
 
 print("")
@@ -64,7 +72,7 @@ print("Increasing the randomness can neglect the impact of the disparity factor 
 
 print("")
 
-gaus2 = str(input("Do you want to increase the randomness? (y/n) "))
+gaus2 = str(input("Do you want to increase the randomness? (y/n) (no is default) "))
 
 ri_l = [1]
 
@@ -112,11 +120,35 @@ exclu = "?"
 
 while exclu != -1:
 
-    exclu = int(input("Which column(s), in numeric order, is made of string and num (-1 to end)"))
+    exclu = int(input("Which column(s), in numeric order, is made of string and num (-1 to end)?"))
 
     exclu_l2.append(exclu - 1)
 
 exclu_l2.pop(-1)
+
+exclu = "?"
+
+exclu_l3 = []
+
+µ_l = []
+
+s_l = []
+
+while exclu != -1:
+
+    exclu = int(input("Which column(s), in numeric order, is made of gaussian type values (-1 to end)?"))
+
+    if exclu != -1:
+
+        mu = float(input("What is the µ?"))
+
+        µ_l.append(mu)
+
+        s = float(input("What is the s?"))
+
+        s_l.append(s)
+
+        exclu_l3.append(exclu - 1)
 
 if len(exclu_l) == 0:
 
@@ -125,6 +157,10 @@ if len(exclu_l) == 0:
 if len(exclu_l2) == 0:
 
     exclu_l2.append(-1)
+
+if len(exclu_l3) == 0:
+
+    exclu_l3.append(-1)
 
 bool_l = ["str", "num"]
 
@@ -142,11 +178,22 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
 
                 if t2 != exclu_l2[t5]: 
 
-                    while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
+                    if t2 == exclu_l3[t6]:
 
-                        add += random.choice(random_l) * gaus 
+                        add = random.gauss(µ_l[t6], s_l[t6])
 
-                        t3 += 1
+                        if t6 + 1 < len(exclu_l3):
+
+                            t6 += 1
+
+                    else:
+
+                        while t3 < random.choice(random_l) * gaus * random.choice(ri_l):
+
+                            add += random.choice(random_l) * gaus 
+
+                            t3 += 1
+
                 else:
 
                     choice = random.choice(bool_l)
@@ -198,6 +245,8 @@ with open(csv_file, "w", encoding="UTF8") as csv_file:
         t4 = 0
 
         t5 = 0
+
+        t6 = 0
 
         if t < len(temp_l2): 
 
