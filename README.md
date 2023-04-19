@@ -9,7 +9,7 @@ Generate a random csv file with a choosen number of rows and columns.
 
 - You can choose if a column will be randomly composed of strings and integers 
 
-- You can choose gaussian-type value in a column
+- You can choose gaussian-type value in a column and edit mu and sigma for each chosen column. 
 
 Example in raw text
 
